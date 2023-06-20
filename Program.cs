@@ -1,6 +1,11 @@
 //Artigo base
 //https://learn.microsoft.com/en-us/dotnet/core/extensions/windows-service?pivots=dotnet-7-0
 
+//Para compilar e publicr
+//dotnet publish --output "C:\Tubo\skCotacaoArroz_Pub" 
+
+//Porém, para criar o serviço, usei o cmd como admin (e não powershell) com o seguinte comando:
+//sc create "Serviço SK - Cotação do Arroz" binpath="c:\tubo\skCotacaoArroz_Pub\skCotacaoArroz.exe"
 
 using skCotacaoArroz.WindowsService;
 using Microsoft.Extensions.Logging.Configuration;
