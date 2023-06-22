@@ -25,7 +25,7 @@ public class CotacaoArrozDB{
 
             cmd.CommandText = sql;
         } else {
-            sql = "UPDTATE CotacaoCPEA set ";
+            sql = "UPDATE CotacaoCPEA set ";
             sql += $"valor = {dados.valorReal.ToSQL()}, ";
             sql += $"valorDolar = {dados.valorDolar.ToSQL()}, ";
             sql += $"logData = '{DateTime.Now.ToString("MM/dd/yyyy")}', ";

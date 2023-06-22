@@ -41,6 +41,7 @@ public sealed class CotacaoArrozConsulta
                     {
                         return new DadosCotacaoArroz(null, 0.0M, 0.0M);
                     }
+                    dataCotacao = dataCotacao.Substring(3,3) +  dataCotacao.Substring(0,3) + dataCotacao.Substring(6);
                     return new DadosCotacaoArroz(dataCotacao!,  Convert.ToDecimal(valor), Convert.ToDecimal(valorDolar));
                 }
             }
