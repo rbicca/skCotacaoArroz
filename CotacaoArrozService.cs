@@ -14,7 +14,13 @@ public class ConsultaArrozService : BackgroundService
             while (!stoppingToken.IsCancellationRequested)
             {
                 try{
-                    var cotacaoHora = await _cotacao.GetCotacaoArroz(DateTime.Now.AddDays(-1));
+                    int qtdAnt = 1;
+                    if (DateTime.Now.DayOfWeek == DayOfWeek.Monday) qtdAnt = 3;
+                    if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday) qtdAnt = 2;
+
+                    DateTime diaAnterior = DateTime.Now.AddDays(-1 * qtdAnt);
+                    
+                    var cotacaoHora = await _cotacao.GetCotacaoArroz(diaAnterior);
                     CotacaoArrozDB.InsertCotacaoArroz(cotacaoHora);
                     _logger.LogWarning("{CotacaoArroz}",$"{cotacaoHora.dataCotacao} {cotacaoHora.valorReal}  - {DateTime.Now.ToString("dd/MM/yy-HH:mm")}");
 
